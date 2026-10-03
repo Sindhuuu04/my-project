@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Create, find, and track internal IT support tickets.">
+  <title>Mini IT Support Ticket System</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-header">
+    <div class="container">
+      <p class="eyebrow">Internal IT support</p>
+      <h1>Mini IT Support Ticket System</h1>
+      <p>Report an issue or check the progress of a support request.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="dashboard" aria-labelledby="dashboard-heading">
+      <h2 id="dashboard-heading">Ticket overview</h2>
+      <dl class="dashboard-cards">
+        <div class="dashboard-card">
+          <dt>Total tickets</dt>
+          <dd id="total-ticket-count">0</dd>
+        </div>
+        <div class="dashboard-card">
+          <dt>Open</dt>
+          <dd id="open-ticket-count">0</dd>
+        </div>
+        <div class="dashboard-card">
+          <dt>In Progress</dt>
+          <dd id="in-progress-ticket-count">0</dd>
+        </div>
+        <div class="dashboard-card">
+          <dt>Resolved</dt>
+          <dd id="resolved-ticket-count">0</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="ticket-creation" aria-labelledby="create-ticket-heading">
+      <h2 id="create-ticket-heading">Create a support ticket</h2>
+      <form id="ticket-form">
+        <div class="form-field">
+          <label for="ticket-title">Ticket title</label>
+          <input id="ticket-title" name="title" type="text" autocomplete="off" required>
+        </div>
+
+        <div class="form-field">
+          <label for="ticket-requester">Requester</label>
+          <input id="ticket-requester" name="requester" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="form-field">
+          <label for="ticket-category">Category</label>
+          <select id="ticket-category" name="category" required>
+            <option value="">Select a category</option>
+            <option value="Hardware">Hardware</option>
+            <option value="Software">Software</option>
+            <option value="Network">Network</option>
+            <option value="Access">Access</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="ticket-priority">Priority</label>
+          <select id="ticket-priority" name="priority" required>
+            <option value="">Select a priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+        </div>
+
+        <div class="form-field form-field-full">
+          <label for="ticket-description">Description</label>
+          <textarea id="ticket-description" name="description" rows="4" required></textarea>
+        </div>
+
+        <div class="form-actions form-field-full">
+          <button type="submit">Submit ticket</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="ticket-list-section" aria-labelledby="tickets-heading">
+      <div class="ticket-list-header">
+        <div>
+          <h2 id="tickets-heading">Support tickets</h2>
+          <p>Search and filter requests by title, requester, status, or category.</p>
+        </div>
+
+        <div class="ticket-filters">
+          <div class="form-field">
+            <label for="ticket-search">Search tickets</label>
+            <input id="ticket-search" name="search" type="search" placeholder="Search title or requester">
+          </div>
+          <div class="form-field">
+            <label for="status-filter">Filter by status</label>
+            <select id="status-filter" name="status">
+              <option value="all">All statuses</option>
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="category-filter">Filter by category</label>
+            <select id="category-filter" name="category">
+              <option value="all">All categories</option>
+              <option value="Hardware">Hardware</option>
+              <option value="Software">Software</option>
+              <option value="Network">Network</option>
+              <option value="Access">Access</option>
+            </select>
+          </div>
+          <button id="clear-filters" class="filter-clear" type="button">Clear Filters</button>
+        </div>
+      </div>
+
+      <p id="ticket-empty-state" class="empty-state">There are no tickets yet. Use the form above to create the first support ticket.</p>
+      <ul id="ticket-list" aria-label="Support tickets" aria-live="polite"></ul>
+    </section>
+  </main>
+</body>
+</html>
