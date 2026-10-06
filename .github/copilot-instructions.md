@@ -49,4 +49,12 @@
 - Bug triage: diagnose missing state updates, stale data, and broken interactions quickly.
 - Data safety: handle corrupted or missing saved data without crashing or exposing unsafe UI output.
 
+## Skills to Prioritize
 
+- Ticket workflow management: create, update, delete, filter, and prioritize tickets.
+- Form validation and UX: reject bad input, surface clear errors, and keep fields consistent.
+- State management: keep ticket lists, counters, and localStorage data synchronized.
+- Accessibility review: verify labels, focus states, keyboard support, and screen-reader clarity.
+- Responsive UI refinement: improve layout and usability across mobile and desktop sizes.
+- Bug triage: diagnose missing state updates, stale data, and broken interactions quickly.
+- Data safety: handle corrupted or missing saved data without crashing or exposing unsafe UI output.
